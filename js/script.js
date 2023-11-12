@@ -100,21 +100,3 @@ window.addEventListener('keydown', (evt)=>{
     }
 });
 
-
-const contactForm = document.querySelector('.contacts__form');
-
-contactForm.addEventListener('submit', sendForm);  
-
-async function sendForm(evt){
-    evt.preventDefault();
-    let formData = new FormData(contactForm);
-    let response = await fetch('mailer/smart.php', {
-        method: 'POST',
-        body: formData
-    });
-    if(response.ok){
-        contactForm.reset();
-    }else{
-        alert('Ошибка');
-    }
-}
